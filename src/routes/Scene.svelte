@@ -6,6 +6,7 @@
 	import { DEG2RAD } from 'three/src/math/MathUtils.js';
 	import { DecalMaterial } from '$lib/shaders/decalMaterial';
 	import HudScene from './HUDScene.svelte';
+	import { base } from '$app/paths';
 
 	type Event = THREE.Intersection & {
 		intersections: THREE.Intersection[]; // The first intersection of each intersected object
@@ -24,11 +25,8 @@
 
 	let intersectionPoint: THREE.Vector3 | null = $state(null);
 
-	// add interactivity
 	interactivity({
 		compute: (event, state) => {
-			// Update the pointer
-
 			if (!bunnyMesh) return;
 			const intersects = state.raycaster.intersectObject(bunnyMesh);
 			const [intersection] = intersects;
@@ -39,6 +37,7 @@
 				p.y = -(event.clientY / window.innerHeight) * 2 + 1;
 				return p;
 			});
+
 			// Update the raycaster
 			state.raycaster.setFromCamera(state.pointer.current, $camera);
 		}
@@ -51,10 +50,10 @@
 
 	// Load textures for stickers using useTexture
 	const stickerUrls = {
-		sticker1: '/Sticjer_1024x1024@2x.png',
-		sticker2: '/Twemoji_1f600.svg.png',
-		sticker3: '/D64aIWkXoAAFI08.png',
-		sticker4: '/three.png'
+		sticker1: base + '/Sticjer_1024x1024@2x.png',
+		sticker2: base + '/Twemoji_1f600.svg.png',
+		sticker3: base + '/D64aIWkXoAAFI08.png',
+		sticker4: base + '/three.png'
 	};
 
 	const texturesPromise = useTexture(stickerUrls);

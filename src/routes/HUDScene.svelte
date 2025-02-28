@@ -45,8 +45,9 @@
 			clearcoatRoughness={0.1}
 			toneMapped={false}
 			envMapIntensity={2}
+			side={2}
 		/>
 	{:else}
-		<T.MeshToonMaterial color="red" />
+		<T.MeshToonMaterial color="red" side={2} />
 	{/if}
 </T.Mesh>

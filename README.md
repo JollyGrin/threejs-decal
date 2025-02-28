@@ -1,5 +1,7 @@
 # Three.js Decal Experiments
 
+![](./static/decal.mp4)
+
 A Svelte-based project exploring Three.js decals using Threlte. This project demonstrates the implementation of decal techniques in 3D web graphics.
 
 ## Tech Stack

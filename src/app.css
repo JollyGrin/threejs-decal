@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+.key {
+	@apply rounded border-b-[1px] border-black bg-gray-300 px-1 py-[1px];
+}
